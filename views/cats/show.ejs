@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= cat.name %></title>
 </head>
+
 <body>
     <h1><%= cat.name %></h1>
     <% if (cat.gender === "Other") {%>
         <h2>They are a good cat!</h2>      
         <%} else{%>
-        <h2>They are a good <%= toLowerCase(cat.gender) %>!</h2>
+        <h2>They are a good <%= cat.gender.toLowerCase() %>!</h2>
     <% } %>        
     <img src="<%= cat.image %>" alt="<%= cat.name %> picture">
     <h2>Age <%= cat.age %></h2>
-   
+    <form action="/cats/<%=cat._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= cat.name %></button>
+    </form>
+   <a href="/cats/"> Take me back to the cats!</a>
 </body>
+
 </html>

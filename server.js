@@ -49,7 +49,11 @@ app.get("/cats/:catId", async (req, res) => {
   res.render("cats/show.ejs", { cat: foundCat });
 });
 
-
+app.delete("/cats/:catId", async (req, res) => {
+  // res.send("This is the delete route");
+  await Cat.findByIdAndDelete(req.params.catId)
+  res.redirect("/cats")
+});
 
 app.listen(3000, () => {
   console.log("In the year 3000");
