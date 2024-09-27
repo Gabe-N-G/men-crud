@@ -24,6 +24,12 @@ app.get("/cats/new", (req,res) =>{
   res.render("cats/new.ejs")
 })
 
+app.post("/cats", async (req, res) => {
+  console.log(req.body);
+  await Cat.create(req.body);
+  res.redirect("/cats/new");
+});
+
 
 app.listen(3000, () => {
   console.log("In the year 3000");
