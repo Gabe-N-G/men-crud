@@ -37,6 +37,14 @@ app.post("/cats", async (req, res) => {
   res.redirect("/cats/new");
 });
 
+app.get("/cats", async (req, res) => {
+  const allCats = await Cat.find();
+  console.log(allCats); // log the cats!
+  // res.send("Welcome to the index page!");
+  res.render("cats/index.ejs", {cats: allCats}) //passes in allcats data.
+});
+
+
 
 app.listen(3000, () => {
   console.log("In the year 3000");
