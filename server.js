@@ -34,7 +34,7 @@ app.get("/cats/new", (req,res) =>{
 app.post("/cats", async (req, res) => {
   console.log(req.body);
   await Cat.create(req.body);
-  res.redirect("/cats/new");
+  res.redirect("/cats");
 });
 
 app.get("/cats", async (req, res) => {
@@ -42,6 +42,11 @@ app.get("/cats", async (req, res) => {
   console.log(allCats); // log the cats!
   // res.send("Welcome to the index page!");
   res.render("cats/index.ejs", {cats: allCats}) //passes in allcats data.
+});
+
+app.get("/cats/:catId", async (req, res) => {
+  const foundCat = await Cat.findById(req.params.catId);
+  res.render("cats/show.ejs", { cat: foundCat });
 });
 
 

@@ -6,12 +6,15 @@
     <title>====^_^====</title>
 </head>
 <body>
+
     <h1>Look at all the cuties!</h1>
     <ul>
       <% cats.forEach(cat => { %>
-        <li><%= cat.name %>
+        <li><a href="/cats/<%= cat._id%>">
+            <h2><%= cat.name %></h2>
             <br>
-           <img src="<%= cat.image %>" alt="<%= cat.name %> Image">
+           <img src="<%= cat.image %>" alt="<%= cat.name %> Image" style="width:500px;height:500px;">
+        </a>
         </li>
       <% }); %>
     </ul>
