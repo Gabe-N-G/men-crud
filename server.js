@@ -6,6 +6,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 app.use(express.urlencoded({ extended: false }));
+const Cat = require("./models/cat.js")
+
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on("connected", () => {
@@ -16,6 +18,12 @@ mongoose.connection.on("connected", () => {
 app.get("/", async (req, res) => {
     res.render("index.ejs");
 });
+
+app.get("/cats/new", (req,res) =>{
+  // res.send("Found me!")
+  res.render("cats/new.ejs")
+})
+
 
 app.listen(3000, () => {
   console.log("In the year 3000");

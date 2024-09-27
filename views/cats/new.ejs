@@ -1,0 +1,32 @@
+<!-- 
+ const catSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    age: Number,
+    image: String,
+  }) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Tell me about your cat!</h1>
+    <form action="/cats" method="POST">
+      <label for="name">What is their name? </label>
+      <input type="text" name="name" id="name" />
+  
+      <label for="age">How old are they?</label>
+      <input type="text" name="age" id="age" />
+
+      <label for="image">Link a picture of your cat!</label>
+      <input type="text" name="image" id="image" />
+  
+      <button type="submit">Add cat! =^_^=</button>
+    </form>
+
+</body>
+</html>
