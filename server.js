@@ -59,8 +59,23 @@ app.delete("/cats/:catId", async (req, res) => {
 app.get("/Cats/:CatId/edit", async (req, res) => {
   const foundCat = await Cat.findById(req.params.CatId);
   console.log(foundCat);
-  res.send(`This is the edit route for ${foundCat.name}`);
+  // res.send(`This is the edit route for ${foundCat.name}`);
+  res.render("cats/edit.ejs", {
+    cat: foundCat,
+  });
 });
+
+// server.js
+
+app.put("/cats/:catId", async (req, res) => {
+  
+  // Update the fruit in the database
+  await Cat.findByIdAndUpdate(req.params.catId, req.body);
+
+  // Redirect to the fruit's show page to see the updates
+  res.redirect(`/cats/${req.params.catId}`);
+});
+
 
 
 app.listen(3000, () => {

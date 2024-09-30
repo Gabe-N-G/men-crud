@@ -6,12 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/cats" method="POST">
+    <form action="/cats/<%= cat._id %>?_method=PUT" method="POST">
         <label for="name">What is their name? </label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" value="<%= cat.name %>" />
     
         <label for="age">How old are they?</label>
-        <input type="text" name="age" id="age" />
+        <input type="text" name="age" id="age" value="<%= cat.age %>" />
   
         <Label for="gender">Is your cat a...</Label>
         
@@ -22,9 +22,9 @@
         </select>   
   
         <label for="image">Link a picture of your cat!</label>
-        <input type="text" name="image" id="image" />
+        <input type="text" name="image" id="image" value="<%= cat.image %>" />
         
-        <button type="submit">Add cat! =^_^=</button>
+        <button type="submit">Edit cat! =^_^=</button>
     </form>
 </body>
 </html>
