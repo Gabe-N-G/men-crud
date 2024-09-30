@@ -55,6 +55,14 @@ app.delete("/cats/:catId", async (req, res) => {
   res.redirect("/cats")
 });
 
+// GET localhost:3000/fruits/:fruitId/edit
+app.get("/Cats/:CatId/edit", async (req, res) => {
+  const foundCat = await Cat.findById(req.params.CatId);
+  console.log(foundCat);
+  res.send(`This is the edit route for ${foundCat.name}`);
+});
+
+
 app.listen(3000, () => {
   console.log("In the year 3000");
 });

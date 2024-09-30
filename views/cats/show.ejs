@@ -19,7 +19,8 @@
     <form action="/cats/<%=cat._id%>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= cat.name %></button>
     </form>
-   <a href="/cats/"> Take me back to the cats!</a>
+    <a href="/cats/<%= cat._id %>/edit">Edit <%= cat.name %></a>
+    <a href="/cats/"> Take me back to the cats!</a>
 </body>
 
 </html>
